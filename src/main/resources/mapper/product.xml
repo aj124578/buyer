@@ -6,3 +6,12 @@
 <mapper namespace="shop.mtcoding.buyer.model.ProductRepository">
 
 </mapper>
+    <sql id="findById">
+          
+    </sql>
+
+
+    <sql id="findById">
+          
+    </sql>
+
