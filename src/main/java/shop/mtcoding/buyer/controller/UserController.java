@@ -1,7 +1,6 @@
 package shop.mtcoding.buyer.controller;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +41,9 @@ public class UserController {
     
     @PostMapping("/login")
     public String login(String username, String password){
+        
         User user = userRepository.findByUsernameAndPassword(username, password);
+
         if (user == null) {
             return "redirect:/loginForm";
         } else {
@@ -51,4 +52,6 @@ public class UserController {
         }
 
     }
+
+    
 }

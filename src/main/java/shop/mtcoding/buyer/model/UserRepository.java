@@ -13,8 +13,9 @@ public interface UserRepository { // 기능을 모를때 CRUD
     public int insert(@Param("username") String username, @Param("password") String password, @Param("email") String email);
     public int updateById(@Param("id") int id, @Param("password") String password); // id로 찾아서 업데이트 하겠다.
     public int deleteById(int id); // id로 삭제를 하겠다.
-
     public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
+    //public User findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
     // public int insert(String username, String password, String email);
 
