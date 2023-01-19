@@ -19,24 +19,32 @@ import shop.mtcoding.buyer.model.User;
 @Controller
 public class ProductController {
     
-    @Autowired
+    @Autowired // 의존성 주입 = DI
     ProductRepository productRepository;
 
     @Autowired
     HttpSession httpSession;
 
+
     @GetMapping({"/", "/product"})
     public String findAll(Model model){
         List<Product> productList = productRepository.findAll();
-        model.addAttribute("productList", productList);
+        model.addAttribute("productList", productList); // 공유영역 request에 담아두면 view에서 찾아낼 수 있음
         return "product/list";
     }
 
+    // select * from product where price = 1000
+    // PathVariable에는 pk만 씀
+    // pk가 아니면 queryString으로 전송
     @GetMapping("product/{id}")
     public String findById(@PathVariable int id, Model model){
         Product product = productRepository.findById(id);
-        model.addAttribute("product", product);
-        return "product/detailPage";
+        if(product == null){
+            return "redirect:/notfound";
+        }else{
+            model.addAttribute("product", product); 
+            return "product/detailPage";
+        }
     }
 
     @PostMapping("product/{id}/purchase")

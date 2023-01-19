@@ -34,6 +34,8 @@
             <li>
             <a href="/logout">로그아웃</a>
             </li>
+            
            </c:otherwise>
         </c:choose>
+        <hr>
         

@@ -26,7 +26,7 @@
                 <td>${product.name}</td>
                 <td>${product.price}원</td>
                 <td>${product.qty}개</td>
-                <td>${product.createdAt}</td>
+                <td>${product.createdAtToString}</td>
             </tr>
         </table>
                     <form action="/product/{id}/purchase" method="post">

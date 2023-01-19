@@ -17,6 +17,7 @@ create table product_tb(
 create table purchase_tb(
     id int auto_increment primary key,
     user_id int,
+    count int,
     product_id int,
     created_at timestamp,
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user_tb (id),
