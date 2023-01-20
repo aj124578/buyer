@@ -47,24 +47,4 @@ public class ProductController {
         }
     }
 
-    @PostMapping("product/{id}/purchase")
-    public String updateById(@PathVariable int id, int qty) {
-
-        User a = (User)httpSession.getAttribute("principal");
-        if (a == null) {
-            return "redirect:/loginForm";
-        } else{ 
-            Product product = productRepository.findById(id);
-            Integer updateQty = product.getQty() - qty;
-            int reuslt = productRepository.updateById(id, updateQty); 
-        
-        if (reuslt == 1) {
-            return "redirect:/product/" + id;
-        } else {
-            return "redirect:/product/";
-        }
-
-        }
-
-    }
 }
