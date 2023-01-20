@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import shop.mtcoding.buyer.dto.PurchaseAllDto;
+
 @Mapper
 public interface PurchaseRepository {
     public int insert(@Param("userId") int userId, @Param("productId") int productId, @Param("count") int count);
@@ -12,4 +14,5 @@ public interface PurchaseRepository {
     public User findById(int id);
     public int updateById(@Param("id") int id, @Param("userId") int userId, @Param("productId") int productId, @Param("count") int count);
     public int deleteById(int id);
+    public List<PurchaseAllDto> findByUserId(Integer id);
 }
